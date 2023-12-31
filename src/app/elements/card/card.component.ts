@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
 
 export enum CategoryType {
   Live = 1,
@@ -7,27 +7,26 @@ export enum CategoryType {
   Gaming,
   Sports,
   Utility,
+  Chinese,
 }
 
 export interface CardProvider {
-  url : string;
-  name : string;
-  category : CategoryType;
-  color : string;
-  logo : string;
+  url: string;
+  name: string;
+  category: CategoryType;
+  color: string;
+  logo: string;
 }
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  selector: "app-card",
+  templateUrl: "./card.component.html",
+  styleUrls: ["./card.component.scss"],
 })
 export class CardComponent implements OnInit {
-  @Input() provider : CardProvider
+  @Input() provider: CardProvider;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
