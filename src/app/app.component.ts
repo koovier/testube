@@ -1,31 +1,33 @@
-import { Component } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component } from "@angular/core";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = 'testube';
+  title = "testube";
   // teslaUserAgentRegEx = /Tesla\/(?:develop-)*(?:feature-)*(?:.*fsd.*)*(?:factory-)*(?:terminal-)*([0-9]{4}.[0-9]{1,3}.?[0-9]{0,3}.?[0-9]{0,3}.?[0-9]{0,3})*-(.*)/g;
   isFullscreen: boolean;
 
-
   constructor(snack: MatSnackBar) {
     this.isFullscreen = false;
-    if (document.referrer.startsWith('https://www.youtube.com/') == false //&&
-        /* navigator.userAgent.match(this.teslaUserAgentRegEx) */) {
-
-      snack.open(`Open in Fullscreen?\nClick "GO TO SITE" on next page`,'Yes',
-        {panelClass: 'fullscreen-snack'})
-        .onAction()
-        .subscribe(()=>{
-          location.href = 'https://www.youtube.com/redirect?q=https://testube.app';
+    if (
+      document.referrer.startsWith("https://www.youtube.com/") == false //&&
+      /* navigator.userAgent.match(this.teslaUserAgentRegEx) */
+    ) {
+      snack
+        .open(`Open in Fullscreen?\nClick "GO TO SITE" on next page`, "Yes", {
+          panelClass: "fullscreen-snack",
         })
-    } else /* if (navigator.userAgent.match(this.teslaUserAgentRegEx)) */ {
+        .onAction()
+        .subscribe(() => {
+          location.href =
+            "https://www.youtube.com/redirect?q=https://xft.vercel.app";
+        });
+    } /* if (navigator.userAgent.match(this.teslaUserAgentRegEx)) */ else {
       this.isFullscreen = true;
     }
   }
-
 }
